@@ -45,9 +45,6 @@ class GameViewModel : ViewModel() {
     // The list of words - the front of the list is the next word to guess
     private lateinit var wordList: MutableList<String>
 
-    // TODO (01) Make a properly encapsulated LiveData called eventGameFinish that holds a
-    // boolean
-
     init {
         resetList()
         nextWord()
