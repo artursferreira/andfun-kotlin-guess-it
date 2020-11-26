@@ -60,16 +60,27 @@ class GameFragment : Fragment() {
         }
 
         /** Setting up LiveData observation relationship **/
-        viewModel.word.observe(this, Observer { newWord ->
+        viewModel.word.observe(this.viewLifecycleOwner, Observer { newWord ->
             binding.wordText.text = newWord
         })
 
-        viewModel.score.observe(this, Observer { newScore ->
+        viewModel.score.observe(this.viewLifecycleOwner, Observer { newScore ->
             binding.scoreText.text = newScore.toString()
         })
 
         viewModel.currentTime.observe(this, Observer { newTime ->
             binding.timerText.text = DateUtils.formatElapsedTime(newTime)
+
+        viewModel.eventGameFinish.observe(this.viewLifecycleOwner, Observer { hasFinished ->
+            if (hasFinished) {
+                gameFinished()
+                viewModel.onGameFinishComplete()
+            }
+        })
+
+        viewModel.currentTime.observe(this.viewLifecycleOwner, Observer { time ->
+           binding.timerText.text = DateUtils.formatElapsedTime(time)
+        })
 
         })
 
