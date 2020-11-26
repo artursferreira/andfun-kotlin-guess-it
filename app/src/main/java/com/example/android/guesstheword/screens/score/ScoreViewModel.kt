@@ -33,6 +33,7 @@ class ScoreViewModel(finalScore: Int) : ViewModel() {
     val score: LiveData<Int>
         get() = _score
 
+
     init {
         _score.value = finalScore
     }
