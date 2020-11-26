@@ -56,7 +56,6 @@ class GameViewModel : ViewModel() {
 
         // This is the total time of the game
         private const val COUNTDOWN_TIME = 60000L
-
     }
 
     private val timer: CountDownTimer
@@ -80,7 +79,6 @@ class GameViewModel : ViewModel() {
     private val _score = MutableLiveData<Int>()
     val score: LiveData<Int>
         get() = _score
-
 
     // The list of words - the front of the list is the next word to guess
     private lateinit var wordList: MutableList<String>
@@ -174,6 +172,7 @@ class GameViewModel : ViewModel() {
         nextWord()
     }
 
+
     /** Methods for completed events **/
 
     fun onGameFinishComplete() {
@@ -188,5 +187,6 @@ class GameViewModel : ViewModel() {
         super.onCleared()
         timer.cancel()
     }
+
 }
 
