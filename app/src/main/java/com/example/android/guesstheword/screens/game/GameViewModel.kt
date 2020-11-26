@@ -58,7 +58,6 @@ class GameViewModel : ViewModel() {
     val score: LiveData<Int>
         get() = _score
 
-
     // The list of words - the front of the list is the next word to guess
     private lateinit var wordList: MutableList<String>
 
